@@ -1,0 +1,10 @@
+.mask {
+  background: #ec4e39;
+  position: absolute;
+  color: black;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  pointer-events: none;
+  user-select: none;
+}

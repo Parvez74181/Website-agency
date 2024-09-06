@@ -1,0 +1,98 @@
+#landing-page-image-slider-section {
+  overflow: hidden;
+  z-index: 102;
+  .slider {
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    img {
+      flex: 1 0 100%;
+      scroll-snap-align: start;
+    }
+  }
+}
+
+#our-services {
+  z-index: 103;
+
+  .our-service-items-container {
+    .our-service-items {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+    }
+  }
+}
+
+#what-we-do {
+  z-index: 104;
+  .lists-container {
+    .list {
+      height: 63px;
+      cursor: pointer;
+      position: relative;
+      width: 100%;
+
+      &:hover {
+        h3 {
+          -webkit-text-stroke: 0px transparent;
+          color: #e9eaeb;
+        }
+        p {
+          -webkit-text-stroke: 1px #e9eaeb;
+          color: transparent;
+        }
+        img {
+          transform: translateY(0) skewY(0) scaleZ(1);
+          transition-duration: 0.7s;
+          clip-path: circle(50% at 50% 50%);
+        }
+      }
+      h3 {
+        -webkit-text-stroke: 1px #e9eaeb;
+        color: transparent;
+        transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      p {
+        -webkit-text-stroke: 0px transparent;
+        color: #e9eaeb;
+        transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      img {
+        transform: translateY(40px);
+        transform-origin: top center;
+        transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        clip-path: circle(0 at 50% 50%);
+        z-index: 2;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 0%;
+        height: 1px;
+        transition: 1s;
+        transition-delay: 0.2s;
+        background-color: #000;
+      }
+      &.active::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #what-we-do {
+    .lists-container {
+      .list {
+        height: 40px;
+        width: 94%;
+      }
+    }
+  }
+}
