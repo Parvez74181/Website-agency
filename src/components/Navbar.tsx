@@ -4,6 +4,7 @@ import Link from "next/link";
 import NavLinks from "@/types/navLinks";
 import styles from "@/styles/Navbar.module.scss";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const navLinks: NavLinks[] = [
   { name: "Home", path: "" },
@@ -15,19 +16,25 @@ const navLinks: NavLinks[] = [
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
       <nav className="xl:px-28 lg:px-20 px-5 my-5 md:mx-auto flex justify-between items-center">
         <div className="logo w-2/5">
-          <Link href="/">
+          <Link href="/" data-aos="fade-down">
             <Image src="/logo.svg" alt="logo" width={250} height={50} />
           </Link>
         </div>
 
         <ul className="hidden lg:flex justify-between items-center w-3/5 *:text-xl">
           {navLinks.map((links: NavLinks, i: number) => (
-            <li key={i}>
+            <li
+              key={i}
+              data-aos="fade-down"
+              data-aos-delay={`${(i + 1) * 100}`}
+              className={`${styles["nav-links"]} ${pathname == "/" + links.path && styles.active}`}
+            >
               <Link href={`/${links.path}`}>{links.name}</Link>
             </li>
           ))}
@@ -47,14 +54,20 @@ const Navbar = () => {
 
       {/* <!-- mobile menu --> */}
 
-      <div className={`${styles["menu-layer"]} ${isActive ? styles.active : ""} h-full fixed top-0`}></div>
+      <div className={`${styles["menu-layer"]} ${isActive ? styles.active : ""} h-full fixed top-0 right-0`}></div>
       <ul
         className={`${styles["mobile-menu"]} ${
           isActive ? styles.active : ""
-        } flex left-0 w-full h-full lg:hidden  fixed top-0 flex-col gap-10 *:text-3xl justify-center items-center font-big-shoulders-text tracking-widest *:outline-2 *:outline-red-500`}
+        } flex left-0 w-full h-full lg:hidden fixed top-0 flex-col gap-10 *:text-3xl justify-center items-center font-big-shoulders-text tracking-widest *:outline-2 *:outline-red-500`}
       >
         {navLinks.map((links: NavLinks, i: number) => (
-          <li key={i}>
+          <li
+            key={i}
+            data-aos="fade-down"
+            data-aos-delay={`${(i + 1) * 100}`}
+            className={`${styles["nav-links"]} ${pathname == "/" + links.path && styles.active}`}
+            onClick={() => setIsActive(!isActive)}
+          >
             <Link href={`/${links.path}`}>{links.name}</Link>
           </li>
         ))}

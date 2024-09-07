@@ -17,6 +17,8 @@ const UserReviews = () => {
         loop={true}
         modules={[Autoplay, FreeMode, Navigation, Pagination]}
         className="mySwiper z-0"
+        data-aos="fade-right"
+        data-aos-delay="200"
       >
         <SwiperSlide className="min-h-[30vh!important]">
           <div

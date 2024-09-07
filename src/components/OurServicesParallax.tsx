@@ -1,11 +1,11 @@
 "use client";
 import styles from "@/styles/Home.module.scss";
 import { useRef } from "react";
-
 import ServicesDetails from "@/types/servicesDetails";
 import { Big_Shoulders_Inline_Text } from "next/font/google";
 const big_Shoulders_inline_Text = Big_Shoulders_Inline_Text({ subsets: ["latin"] });
 import { motion, useTransform, useScroll } from "framer-motion";
+import { useAppContext } from "@/context/context";
 
 const servicesDetails: ServicesDetails[] = [
   {
@@ -48,6 +48,7 @@ const OurServicesParallax = () => {
 
   const x = useTransform(scrollYProgress, [1, 0], ["0%", "-95%"]);
 
+  const { setIsHovering }: any = useAppContext();
   return (
     <>
       {/* large screen */}
@@ -55,6 +56,12 @@ const OurServicesParallax = () => {
         style={{ x }}
         ref={targetRef}
         className={`${styles["our-service-items-container"]} w-[800%] text-gray-100 xl:w-[150%] md:flex gap-4 sticky top-0 overflow-hidden z-[1000000!important] hidden `}
+        onMouseEnter={() => {
+          setIsHovering(true);
+        }}
+        onMouseLeave={() => {
+          setIsHovering(false);
+        }}
       >
         {servicesDetails.map((details: ServicesDetails, i: number) => (
           <motion.div

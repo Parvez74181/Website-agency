@@ -8,6 +8,7 @@ import Link from "next/link";
 import OurServicesParallax from "@/components/OurServicesParallax";
 import UserReviews from "@/components/UserReviews";
 import ProjectOverviewSection from "@/components/ProjectOverviewSection";
+import classNames from "classnames";
 
 const big_Shoulders_inline_Text = Big_Shoulders_Inline_Text({ subsets: ["latin"] });
 const big_Shoulders_Text = Big_Shoulders_Text({ subsets: ["latin"] });
@@ -21,20 +22,21 @@ export default function Home() {
         id="hero-section"
         className=" relative flex justify-center lg:flex-row flex-col items-center gap-20 lg:gap-2 md:h-[80vh] h-auto "
       >
-        <div className="container mx-3 md:mx-auto ">
-          <div className="flex flex-col ms-5 w-auto lg:w-[70%] ">
+        <div className="container mx-3 md:mx-auto flex justify-center items-center">
+          <div className="flex flex-col ms-5 w-auto lg:w-[70%] pb-8 lg:pb-0">
             <h1
-              className={`${big_Shoulders_inline_Text.className} w-full font-big-shoulders-inline-text font-extrabold tracking-wide text-[50px] md:text-[60px] xl:text-[70px]  md:mt-20 `}
+              className={`${big_Shoulders_inline_Text.className} w-full font-big-shoulders-inline-text font-extrabold tracking-wide text-[50px] md:text-[60px] xl:text-[70px]  md:mt-20 text-sky-950`}
+              data-aos="fade-down"
             >
               Empowering Your Digital Presence with Creative Excellence.
             </h1>
 
-            <div className="w-[70%]">
+            <div className="w-[70%]" data-aos="fade-up">
               <p className="font-light">
                 At Skill Edge, we invite you to unlock the potential of your brand through the synergy of creativity and
                 technology.
               </p>
-              <Link href="/contact" className="flex top-1 relative">
+              <Link href="/contact" className={classNames("flex top-1 relative w-[120px]")}>
                 <span className="border-b border-black font-medium"> Contact Us</span>
                 <span>
                   <svg
@@ -71,11 +73,7 @@ export default function Home() {
       </section>
 
       {/* <!-- project-overview --> */}
-      <section
-        id="project-overview"
-        className="px-5 py-10 mt-20 "
-        style={{ backgroundColor: "var(--secondary-color)" }}
-      >
+      <section id="project-overview" className="px-5 py-10  bg-sky-950">
         <div className="container md:mx-auto grid grid-cols-2 gap-4 md:grid-cols-4">
           <ProjectOverviewSection />
         </div>
@@ -90,12 +88,14 @@ export default function Home() {
       <section id={styles["our-services"]} className="overflow-x-hidden bg-gray-900">
         <div className="container mx-3 md:mx-auto ">
           <h2
-            data-animation="zoom-in-up"
-            className={`${big_Shoulders_Display.className} text-center  font-black text-white text-[50px] md:text-[60px] xl:text-[100px`}
+            data-aos="zoom-in-down"
+            className={classNames(
+              `${big_Shoulders_Display.className} text-center  font-black text-white text-[50px] md:text-[60px] xl:text-[100px`
+            )}
           >
             Our Services
           </h2>
-          <p className="font-light text-gray-100 mx-auto text-center md:w-[380px] mt-2 mb-10">
+          <p className="font-light text-gray-100 mx-auto text-center md:w-[380px] mt-2 mb-10" data-aos="zoom-in-up">
             From Custom WordPress Sites To High Performance Web Service and other Services
           </p>
 
@@ -104,16 +104,23 @@ export default function Home() {
       </section>
 
       {/* <!-- what-we-do --> */}
-      <section id={styles["what-we-do"]} className="pt-8 pb-20 -mt-1 text-gray-100 bg-gray-900 overflow-x-hidden">
+      <section id={styles["what-we-do"]} className="pt-8 pb-20 -mt-1 text-gray-100 bg-gray-900 overflow-hidden">
         <div className="container mx-3 w-full md:mx-auto">
-          <h3 className="text-3xl border-b border-gray-700 inline-block md:left-1/2 relative md:-translate-x-1/2">
+          <h3
+            className="text-3xl border-b border-gray-700 inline-block md:left-1/2 relative md:-translate-x-1/2"
+            data-aos="fade-down"
+          >
             What We Do
           </h3>
 
           {/* <!-- lists-container --> */}
-          <div className={`${styles["lists-container"]} *:border-b *:border-gray-700`}>
+          <div className={`${styles["lists-container"]} *:border-b *:border-gray-700  `}>
             {/* <!-- research --> */}
-            <div className={`${styles["list"]} flex items-center gap-x-5 md:gap-x-8 mt-10 md:mt-20 `}>
+            <div
+              className={`${styles["list"]} flex items-center gap-x-5 md:gap-x-8 mt-10 md:mt-20 `}
+              data-aos="fade-right"
+              data-aos-delay="300"
+            >
               <h3
                 className={`${big_Shoulders_Text.className} font-bold tracking-wide text-[50px] md:text-[60px] xl:text-[80px]`}
               >
@@ -136,7 +143,8 @@ export default function Home() {
 
             {/* <!-- discovery --> */}
             <div
-              data-animation="slide-in-down"
+              data-aos="fade-right"
+              data-aos-delay="300"
               className={`${styles["list"]} flex items-center gap-x-5 md:gap-x-8 mt-10 md:mt-20 `}
             >
               <h3
@@ -160,8 +168,8 @@ export default function Home() {
 
             {/* <!-- content --> */}
             <div
-              data-animation="slide-in-down"
-              data-delay="150"
+              data-aos="fade-right"
+              data-aos-delay="400"
               className={`${styles["list"]} flex items-center gap-x-5 md:gap-x-8 mt-10 md:mt-20`}
             >
               <h3
@@ -185,7 +193,8 @@ export default function Home() {
 
             {/* <!-- design --> */}
             <div
-              data-animation="slide-in-down"
+              data-aos="fade-right"
+              data-aos-delay="400"
               className={`${styles["list"]} flex items-center gap-x-5 md:gap-x-8 mt-10 md:mt-20`}
             >
               <h3
@@ -209,8 +218,8 @@ export default function Home() {
 
             {/* <!-- development --> */}
             <div
-              data-animation="slide-in-down"
-              data-delay="250"
+              data-aos="fade-right"
+              data-aos-delay="500"
               className={`${styles["list"]} flex items-center gap-x-5 md:gap-x-8 mt-10 md:mt-20`}
             >
               <h3
@@ -234,8 +243,8 @@ export default function Home() {
 
             {/* <!-- optimization --> */}
             <div
-              data-animation="slide-in-down"
-              data-delay="300"
+              data-aos="fade-right"
+              data-aos-delay="600"
               className={`${styles["list"]} flex items-center gap-x-5 md:gap-x-8 mt-10 md:mt-20`}
             >
               <h3
@@ -267,7 +276,7 @@ export default function Home() {
         className="h-[50vh] w-full -mt-1 flex justify-center items-center bg-gradient-to-b from-gray-900 to-blue-950 mb-5"
       >
         <div className="container mx-3 md:mx-auto  grid grid-cols-1 md:grid-cols-2 gap-5 text-gray-100">
-          <h3 className="text-3xl text-center inline-block left-1/2 relative -translate-x-1/2">
+          <h3 className="text-3xl text-center  relative " data-aos="fade-down" data-aos-delay="100">
             Cheers to our clients, We couldn't do it without them!
           </h3>
           <UserReviews />

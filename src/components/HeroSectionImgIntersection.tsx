@@ -33,6 +33,8 @@ const HeroSectionImgIntersection = () => {
         data-animation="slide-in-right"
         data-delay="300"
         className="w-full hidden md:w-[30%] hero-section-imgs md:flex justify-center items-center relative"
+        data-aos="zoom-in"
+        data-aos-duration="500"
       >
         <Image src="/hero-section-circle-strips.svg" alt="hero-section-circle-strips " height={200} width={200} />
         <Image

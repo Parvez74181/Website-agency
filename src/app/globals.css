@@ -8,7 +8,7 @@
 /* variables */
 :root {
   --body-color: #fffaed;
-  --primary-color: #f2c14e;
+  --primary-color: #111827;
   --secondary-color: #f8dd9e;
   --linear-primary-color: #f5cc6e;
   --linear-secondary-color: #fe0000;
@@ -36,6 +36,9 @@
 html {
   scroll-behavior: smooth;
 }
+body {
+  overflow-x: hidden !important;
+}
 
 .swiper {
   width: 100%;
@@ -47,3 +50,7 @@ html {
     text-wrap: balance;
   }
 }
+
+/* * {
+  outline: 1px solid red;
+} */

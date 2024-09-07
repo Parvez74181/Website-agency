@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import {} from "@/utils/SmoothScrolling";
 import MaskCursor from "@/components/MaskCursor";
+import { AppWrapper } from "@/context/context";
+import { AOSInit } from "@/components/AOSInit";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -23,9 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <MaskCursor />
-        <Navbar />
-        {children}
+        <AppWrapper>
+          <AOSInit />
+          {/* <MaskCursor /> */}
+          <Navbar />
+          {children}
+        </AppWrapper>
       </body>
     </html>
   );

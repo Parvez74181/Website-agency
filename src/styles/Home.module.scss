@@ -28,6 +28,9 @@
 }
 
 #what-we-do {
+  &::-webkit-scrollbar {
+    display: hidden;
+  }
   z-index: 104;
   .lists-container {
     .list {
