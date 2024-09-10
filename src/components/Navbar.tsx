@@ -5,11 +5,14 @@ import NavLinks from "@/types/navLinks";
 import styles from "@/styles/Navbar.module.scss";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useAppContext } from "@/context/context";
 
 const navLinks: NavLinks[] = [
   { name: "Home", path: "" },
   { name: "Services", path: "services" },
   { name: "Portfolio", path: "portfolio" },
+  { name: "Blog", path: "blog" },
+  { name: "Career", path: "career" },
   { name: "About", path: "about" },
   { name: "Contact", path: "contact" },
 ];
@@ -17,10 +20,18 @@ const navLinks: NavLinks[] = [
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
-
+  const { setMaskColor, setIsHovering, setOpacity } = useAppContext();
   return (
     <>
-      <nav className="xl:px-28 lg:px-20 px-5 my-5 md:mx-auto flex justify-between items-center">
+      <nav
+        className="xl:px-28 lg:px-20 px-5 my-5 md:mx-auto flex justify-between items-center"
+        onMouseEnter={() => {
+          setMaskColor("black");
+        }}
+        onMouseLeave={() => {
+          setMaskColor("white");
+        }}
+      >
         <div className="logo w-2/5">
           <Link href="/" data-aos="fade-down">
             <Image src="/logo.svg" alt="logo" width={250} height={50} />
@@ -34,6 +45,14 @@ const Navbar = () => {
               data-aos="fade-down"
               data-aos-delay={`${(i + 1) * 100}`}
               className={`${styles["nav-links"]} ${pathname == "/" + links.path && styles.active}`}
+              onMouseEnter={() => {
+                setIsHovering(true);
+                setOpacity(30);
+              }}
+              onMouseLeave={() => {
+                setIsHovering(false);
+                setOpacity(70);
+              }}
             >
               <Link href={`/${links.path}`}>{links.name}</Link>
             </li>

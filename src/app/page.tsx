@@ -9,18 +9,26 @@ import OurServicesParallax from "@/components/OurServicesParallax";
 import UserReviews from "@/components/UserReviews";
 import ProjectOverviewSection from "@/components/ProjectOverviewSection";
 import classNames from "classnames";
+import { useAppContext } from "@/context/context";
 
 const big_Shoulders_inline_Text = Big_Shoulders_Inline_Text({ subsets: ["latin"] });
 const big_Shoulders_Text = Big_Shoulders_Text({ subsets: ["latin"] });
 const big_Shoulders_Display = Big_Shoulders_Display({ subsets: ["latin"] });
 
 export default function Home() {
+  const { setMaskColor, setIsHovering, isHovering, setSize } = useAppContext();
   return (
     <>
       {/* <!-- hero-section --> */}
       <section
         id="hero-section"
         className=" relative flex justify-center lg:flex-row flex-col items-center gap-20 lg:gap-2 md:h-[80vh] h-auto "
+        onMouseEnter={() => {
+          setMaskColor("black");
+        }}
+        onMouseLeave={() => {
+          setMaskColor("white");
+        }}
       >
         <div className="container mx-3 md:mx-auto flex justify-center items-center">
           <div className="flex flex-col ms-5 w-auto lg:w-[70%] pb-8 lg:pb-0">
@@ -36,8 +44,21 @@ export default function Home() {
                 At Skill Edge, we invite you to unlock the potential of your brand through the synergy of creativity and
                 technology.
               </p>
-              <Link href="/contact" className={classNames("flex top-1 relative w-[120px]")}>
-                <span className="border-b border-black font-medium"> Contact Us</span>
+              <Link
+                href="/contact"
+                className={classNames("flex top-1 relative w-[120px]", { "text-white": isHovering })}
+                onMouseEnter={() => {
+                  setIsHovering(true);
+                  setSize(150);
+                }}
+                onMouseLeave={() => {
+                  setIsHovering(false);
+                  setSize(100);
+                }}
+              >
+                <span className={classNames("border-b border-black font-medium", { "border-white": isHovering })}>
+                  Contact Us
+                </span>
                 <span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -45,9 +66,9 @@ export default function Home() {
                     viewBox="0 0 1400 980"
                     x="0px"
                     y="0px"
-                    // style={{enableBackground:"new 0 0 1400 980"}}
                     width="30px"
                     height="30px"
+                    fill={isHovering ? "white" : "black"}
                   >
                     <rect
                       id="ee-background"
@@ -92,10 +113,33 @@ export default function Home() {
             className={classNames(
               `${big_Shoulders_Display.className} text-center  font-black text-white text-[50px] md:text-[60px] xl:text-[100px`
             )}
+            onMouseEnter={() => {
+              setIsHovering(true);
+              setSize(150);
+              setMaskColor("black");
+            }}
+            onMouseLeave={() => {
+              setIsHovering(false);
+              setSize(100);
+              setMaskColor("white");
+            }}
           >
             Our Services
           </h2>
-          <p className="font-light text-gray-100 mx-auto text-center md:w-[380px] mt-2 mb-10" data-aos="zoom-in-up">
+          <p
+            className={classNames("font-light text-gray-100 mx-auto text-center md:w-[380px] mt-2 mb-10")}
+            data-aos="zoom-in-up"
+            onMouseEnter={() => {
+              setIsHovering(true);
+              setSize(150);
+              setMaskColor("black");
+            }}
+            onMouseLeave={() => {
+              setIsHovering(false);
+              setSize(100);
+              setMaskColor("white");
+            }}
+          >
             From Custom WordPress Sites To High Performance Web Service and other Services
           </p>
 
@@ -109,6 +153,16 @@ export default function Home() {
           <h3
             className="text-3xl border-b border-gray-700 inline-block md:left-1/2 relative md:-translate-x-1/2"
             data-aos="fade-down"
+            onMouseEnter={() => {
+              setIsHovering(true);
+              setSize(150);
+              setMaskColor("black");
+            }}
+            onMouseLeave={() => {
+              setIsHovering(false);
+              setSize(100);
+              setMaskColor("white");
+            }}
           >
             What We Do
           </h3>
@@ -273,10 +327,24 @@ export default function Home() {
       {/* <!-- user reviews --> */}
       <section
         id={styles["user-reviews"]}
-        className="h-[50vh] w-full -mt-1 flex justify-center items-center bg-gradient-to-b from-gray-900 to-blue-950 mb-5"
+        className="h-[50vh] w-full -mt-1 flex justify-between items-center bg-gradient-to-b from-gray-900 to-blue-950 "
       >
-        <div className="container mx-3 md:mx-auto  grid grid-cols-1 md:grid-cols-2 gap-5 text-gray-100">
-          <h3 className="text-3xl text-center  relative " data-aos="fade-down" data-aos-delay="100">
+        <div className="container  md:mx-auto flex justify-center md:flex-row flex-col items-center gap-5 text-gray-100">
+          <h3
+            className="text-xl md:text-3xl text-center relative md:w-1/2 md:p-20 md:pt-0 w-full"
+            data-aos="fade-down"
+            data-aos-delay="100"
+            onMouseEnter={() => {
+              setIsHovering(true);
+              setSize(150);
+              setMaskColor("black");
+            }}
+            onMouseLeave={() => {
+              setIsHovering(false);
+              setSize(100);
+              setMaskColor("white");
+            }}
+          >
             Cheers to our clients, We couldn't do it without them!
           </h3>
           <UserReviews />

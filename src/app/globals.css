@@ -51,6 +51,44 @@ body {
   }
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+  border: 1px solid hsla(0, 0%, 100%, 0.8);
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  top: 90% !important;
+}
+.swiper-button-next {
+  left: 10% !important;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: hsla(0, 0%, 100%, 0.8);
+  scale: 0.5;
+}
+
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {
+  background-color: hsla(0, 0%, 100%, 0.8) !important;
+}
+.swiper-pagination-bullet {
+  background-color: hsla(0, 0%, 100%, 0.4) !important;
+}
+.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  top: 85%;
+}
+
+@media only screen and (max-width: 769) {
+  .swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    top: 90%;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: 95% !important;
+  }
+}
 /* * {
   outline: 1px solid red;
 } */

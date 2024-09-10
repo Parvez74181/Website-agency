@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <AppWrapper>
           <AOSInit />
-          {/* <MaskCursor /> */}
+          <MaskCursor />
           <Navbar />
           {children}
         </AppWrapper>

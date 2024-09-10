@@ -48,7 +48,7 @@ const OurServicesParallax = () => {
 
   const x = useTransform(scrollYProgress, [1, 0], ["0%", "-95%"]);
 
-  const { setIsHovering }: any = useAppContext();
+  const { setIsHovering, setOpacity } = useAppContext();
   return (
     <>
       {/* large screen */}
@@ -58,8 +58,10 @@ const OurServicesParallax = () => {
         className={`${styles["our-service-items-container"]} w-[800%] text-gray-100 xl:w-[150%] md:flex gap-4 sticky top-0 overflow-hidden z-[1000000!important] hidden `}
         onMouseEnter={() => {
           setIsHovering(true);
+          setOpacity(20);
         }}
         onMouseLeave={() => {
+          setOpacity(70);
           setIsHovering(false);
         }}
       >
